@@ -1,0 +1,16 @@
+<Project Sdk="Godot.NET.Sdk/4.6.3">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+    <RootNamespace>JumpRun</RootNamespace>
+    <AssemblyName>JumpRun</AssemblyName>
+    <Nullable>enable</Nullable>
+    <LangVersion>12</LangVersion>
+    <!-- Auf der Build-Maschine ist nur die .NET-10-Runtime installiert -->
+    <RollForward>LatestMajor</RollForward>
+  </PropertyGroup>
+  <!-- R-12: Headless-Tests nicht in Release-Exporte kompilieren (Editor/Debug behalten sie). -->
+  <ItemGroup Condition="'$(Configuration)' == 'ExportRelease'">
+    <Compile Remove="tests/**" />
+  </ItemGroup>
+</Project>

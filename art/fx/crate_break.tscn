@@ -1,0 +1,45 @@
+[gd_scene format=3]
+
+[sub_resource type="StandardMaterial3D" id="Mat_chip"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 1, 1, 1)
+roughness = 0.9
+
+[sub_resource type="BoxMesh" id="Mesh_chip"]
+material = SubResource("Mat_chip")
+size = Vector3(0.22, 0.08, 0.32)
+
+[sub_resource type="Curve" id="Curve_shrink"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7, 0.9), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_wood"]
+offsets = PackedFloat32Array(0, 1)
+colors = PackedColorArray(0.80, 0.55, 0.30, 1, 0.45, 0.27, 0.13, 1)
+
+[node name="CrateBreak" type="CPUParticles3D"]
+emitting = false
+amount = 28
+lifetime = 1.2
+one_shot = true
+explosiveness = 0.95
+randomness = 0.4
+local_coords = false
+mesh = SubResource("Mesh_chip")
+emission_shape = 3
+emission_box_extents = Vector3(0.45, 0.45, 0.45)
+direction = Vector3(0, 1, 0)
+spread = 75.0
+gravity = Vector3(0, -24, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 9.0
+angular_velocity_min = -540.0
+angular_velocity_max = 540.0
+damping_min = 0.5
+damping_max = 1.5
+angle_min = -180.0
+angle_max = 180.0
+scale_amount_min = 0.6
+scale_amount_max = 1.4
+scale_amount_curve = SubResource("Curve_shrink")
+color_initial_ramp = SubResource("Gradient_wood")

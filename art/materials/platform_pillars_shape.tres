@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3]
+
+[ext_resource type="Shader" path="res://art/shaders/platform_shape.gdshader" id="1_shader"]
+
+[resource]
+resource_name = "platform_pillars_shape"
+render_priority = 0
+shader = ExtResource("1_shader")
+shader_parameter/top_color = Color(0.549, 0.6078, 0.6902, 1)
+shader_parameter/side_color = Color(0.3569, 0.4157, 0.5098, 1)
+shader_parameter/edge_color = Color(0.9333, 0.9529, 0.9804, 1)
+shader_parameter/tile_contrast = 0.08
+shader_parameter/noise_strength = 0.09

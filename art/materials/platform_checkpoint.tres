@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://art/shaders/platform.gdshader" id="1_shader"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_shader")
+shader_parameter/top_color = Color(0.9569, 0.9451, 1, 1)
+shader_parameter/side_color = Color(0.7255, 0.702, 0.8392, 1)
+shader_parameter/edge_color = Color(0.4863, 1, 0.698, 1)
+shader_parameter/edge_width_px = 3.0
+shader_parameter/edge_emission = 1.6
+shader_parameter/tile_contrast = 0.12

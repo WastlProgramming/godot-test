@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[resource]
+resource_name = "player_body"
+albedo_color = Color(0.2392, 0.3529, 0.9961, 1)
+roughness = 0.5
+rim_enabled = true
+rim = 0.5
+rim_tint = 0.4

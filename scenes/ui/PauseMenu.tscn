@@ -1,0 +1,121 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/UI/PauseMenu.cs" id="1_script"]
+[ext_resource type="Theme" path="res://art/ui/theme.tres" id="2_theme"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_theme")
+script = ExtResource("1_script")
+
+[node name="Dim" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.031, 0.047, 0.094, 0.6)
+
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="Center"]
+custom_minimum_size = Vector2(380, 0)
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="Center/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Title" type="Label" parent="Center/Panel/VBox"]
+layout_mode = 2
+theme_type_variation = &"TitleLabel"
+theme_override_font_sizes/font_size = 56
+text = "Pause"
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="Center/Panel/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+text = "Weiter"
+
+[node name="RestartButton" type="Button" parent="Center/Panel/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+text = "Neustart"
+
+[node name="MainMenuButton" type="Button" parent="Center/Panel/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+text = "Hauptmenü"
+
+[node name="SensitivityLabel" type="Label" parent="Center/Panel/VBox"]
+layout_mode = 2
+theme_type_variation = &"SubtitleLabel"
+text = "Mausempfindlichkeit"
+horizontal_alignment = 1
+
+[node name="SensitivitySlider" type="HSlider" parent="Center/Panel/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+min_value = 0.05
+max_value = 1.0
+step = 0.05
+value = 0.25
+
+[node name="MusicLabel" type="Label" parent="Center/Panel/VBox"]
+layout_mode = 2
+theme_type_variation = &"SubtitleLabel"
+text = "Musik"
+horizontal_alignment = 1
+
+[node name="MusicSlider" type="HSlider" parent="Center/Panel/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 0.7
+
+[node name="SfxLabel" type="Label" parent="Center/Panel/VBox"]
+layout_mode = 2
+theme_type_variation = &"SubtitleLabel"
+text = "Effekte"
+horizontal_alignment = 1
+
+[node name="SfxSlider" type="HSlider" parent="Center/Panel/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 0.8
+
+[node name="GraphicsLowToggle" type="CheckButton" parent="Center/Panel/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "Grafik: niedrig (schneller)"
+
+[node name="QuitButton" type="Button" parent="Center/Panel/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+text = "Beenden"

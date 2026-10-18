@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3]
+
+[ext_resource type="Shader" path="res://art/shaders/backdrop.gdshader" id="1_shader"]
+
+[resource]
+resource_name = "backdrop_mountains_mid"
+shader = ExtResource("1_shader")
+shader_parameter/haze_begin = 250.0
+shader_parameter/haze_end = 1100.0
+shader_parameter/haze_max = 0.38
+shader_parameter/haze_curve = 0.8
+shader_parameter/low_haze_top = 20.0
+shader_parameter/low_haze_bottom = -80.0
+shader_parameter/low_haze_strength = 0.85
+shader_parameter/sun_strength = 0.6

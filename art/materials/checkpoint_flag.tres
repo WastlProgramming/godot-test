@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[resource]
+resource_name = "checkpoint_flag"
+albedo_color = Color(0.6039, 0.6392, 0.7098, 1)
+roughness = 0.8
+cull_mode = 2

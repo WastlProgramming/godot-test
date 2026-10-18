@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[resource]
+resource_name = "bottle_label"
+albedo_color = Color(1.0000, 0.4784, 0.6353, 1)
+metallic = 0.0
+roughness = 0.6
+rim_enabled = true
+rim = 0.2
+rim_tint = 0.4

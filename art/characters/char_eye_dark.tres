@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[resource]
+resource_name = "char_eye_dark"
+albedo_color = Color(0.0863, 0.1020, 0.1686, 1)
+metallic = 0.0
+roughness = 0.3

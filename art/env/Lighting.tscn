@@ -1,0 +1,28 @@
+[gd_scene format=3]
+
+[node name="Lighting" type="Node3D"]
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.882948, -0.369949, 0.289036, 0, 0.615661, 0.788011, -0.469472, -0.695772, 0.543597, 0, 30, 0)
+light_color = Color(1, 0.925, 0.8, 1)
+light_energy = 1.2
+light_angular_distance = 0.6
+shadow_enabled = true
+shadow_bias = 0.04
+shadow_normal_bias = 1.2
+shadow_blur = 1.0
+directional_shadow_mode = 2
+directional_shadow_split_1 = 0.08
+directional_shadow_split_2 = 0.22
+directional_shadow_split_3 = 0.5
+directional_shadow_blend_splits = true
+directional_shadow_max_distance = 120.0
+sky_mode = 0
+
+[node name="Fill" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.336336, 0.48772, -0.805609, 0, 0.855446, 0.517892, 0.941742, 0.174186, -0.287718, 0, 30, 0)
+light_color = Color(0.663, 0.784, 1, 1)
+light_energy = 0.28
+light_specular = 0.0
+shadow_enabled = false
+sky_mode = 1

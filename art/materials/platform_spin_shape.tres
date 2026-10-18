@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3]
+
+[ext_resource type="Shader" path="res://art/shaders/platform_shape.gdshader" id="1_shader"]
+
+[resource]
+resource_name = "platform_spin_shape"
+render_priority = 0
+shader = ExtResource("1_shader")
+shader_parameter/top_color = Color(0.2314, 0.4235, 0.9412, 1)
+shader_parameter/side_color = Color(0.1412, 0.2706, 0.6588, 1)
+shader_parameter/edge_color = Color(1, 0.9137, 0.5412, 1)
+shader_parameter/edge_width_px = 3.0
+shader_parameter/edge_emission = 0.6
+shader_parameter/emission_color = Color(0.231, 0.424, 0.941, 1)
+shader_parameter/emission_energy = 0.18
+shader_parameter/pulse_speed = 2.0

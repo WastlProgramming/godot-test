@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[resource]
+resource_name = "trash_lid"
+albedo_color = Color(0.1725, 0.4784, 0.2784, 1)
+metallic = 0.5
+roughness = 0.4
+metallic_specular = 0.6
+rim_enabled = true
+rim = 0.35
+rim_tint = 0.4

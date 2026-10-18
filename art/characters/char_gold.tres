@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[resource]
+resource_name = "char_gold"
+albedo_color = Color(0.9098, 0.6392, 0.0902, 1)
+metallic = 0.45
+roughness = 0.3
+metallic_specular = 0.6
+rim_enabled = true
+rim = 0.3
+rim_tint = 0.4

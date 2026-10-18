@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[resource]
+resource_name = "checkpoint_flag_active"
+albedo_color = Color(0.1804, 0.902, 0.4196, 1)
+roughness = 0.5
+cull_mode = 2
+emission_enabled = true
+emission = Color(0.1804, 0.902, 0.4196, 1)
+emission_energy_multiplier = 2.0

@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3]
+
+[ext_resource type="Shader" path="res://art/shaders/backdrop.gdshader" id="1_shader"]
+
+[resource]
+resource_name = "backdrop_clouds"
+shader = ExtResource("1_shader")
+shader_parameter/haze_begin = 120.0
+shader_parameter/haze_end = 720.0
+shader_parameter/haze_max = 1.0
+shader_parameter/haze_curve = 1.5
+shader_parameter/sun_strength = 0.38
+shader_parameter/wrap_light = 0.6
+shader_parameter/shade_color = Color(0.76, 0.81, 0.93, 1)
+shader_parameter/wrap_period = Vector2(1500, 1500)

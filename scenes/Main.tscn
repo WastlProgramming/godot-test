@@ -1,0 +1,42 @@
+[gd_scene load_steps=10 format=3]
+
+[ext_resource type="Script" path="res://scripts/Game/Main.cs" id="1_main"]
+[ext_resource type="Script" path="res://scripts/World/WorldGenerator.cs" id="2_worldgen"]
+[ext_resource type="PackedScene" path="res://scenes/Player.tscn" id="3_player"]
+[ext_resource type="Environment" path="res://art/env/world_environment.tres" id="4_env"]
+[ext_resource type="PackedScene" path="res://art/env/Lighting.tscn" id="5_light"]
+[ext_resource type="PackedScene" path="res://scenes/ui/HUD.tscn" id="6_hud"]
+[ext_resource type="PackedScene" path="res://scenes/ui/PauseMenu.tscn" id="7_pause"]
+[ext_resource type="PackedScene" path="res://scenes/Backdrop.tscn" id="8_backdrop"]
+[ext_resource type="Script" path="res://scripts/Audio/AudioEventBridge.cs" id="9_audio"]
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_main")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("4_env")
+
+[node name="Lighting" parent="." instance=ExtResource("5_light")]
+
+[node name="Backdrop" parent="." instance=ExtResource("8_backdrop")]
+
+[node name="WorldRoot" type="Node3D" parent="."]
+
+[node name="WorldGenerator" type="Node3D" parent="WorldRoot"]
+script = ExtResource("2_worldgen")
+PlayerPath = NodePath("../../Player")
+
+[node name="Chunks" type="Node3D" parent="WorldRoot"]
+
+[node name="Placeables" type="Node3D" parent="WorldRoot" groups=["placeables_root"]]
+
+[node name="Player" parent="." instance=ExtResource("3_player")]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="UI" instance=ExtResource("6_hud")]
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("7_pause")]
+
+[node name="AudioEventBridge" type="Node" parent="."]
+script = ExtResource("9_audio")

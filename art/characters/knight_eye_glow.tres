@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[resource]
+resource_name = "knight_eye_glow"
+albedo_color = Color(0.6588, 0.9412, 1.0000, 1)
+metallic = 0.0
+roughness = 0.5
+emission_enabled = true
+emission = Color(0.4980, 0.9020, 1.0000, 1)
+emission_energy_multiplier = 2.2

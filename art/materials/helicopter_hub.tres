@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[resource]
+resource_name = "helicopter_hub"
+albedo_color = Color(0.18, 0.196, 0.278, 1)
+metallic = 0.75
+roughness = 0.3
+emission_enabled = true
+emission = Color(0.6078, 0.4196, 1, 1)
+emission_energy_multiplier = 0.25

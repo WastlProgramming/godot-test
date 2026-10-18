@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[resource]
+resource_name = "hero_skin"
+albedo_color = Color(0.9490, 0.7843, 0.6275, 1)
+metallic = 0.0
+roughness = 0.7
+rim_enabled = true
+rim = 0.3
+rim_tint = 0.4

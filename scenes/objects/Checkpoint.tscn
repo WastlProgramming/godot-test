@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/World/Checkpoint.cs" id="1_cp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cp"]
+size = Vector3(4, 3, 4)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_pole"]
+top_radius = 0.06
+bottom_radius = 0.06
+height = 3.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_flag"]
+size = Vector3(1.0, 0.6, 0.05)
+
+[node name="Checkpoint" type="Area3D" groups=["checkpoint"]]
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("1_cp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("BoxShape3D_cp")
+
+[node name="Pole" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7, 1.5, 1.7)
+mesh = SubResource("CylinderMesh_pole")
+
+[node name="Flag" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 2.65, 1.7)
+mesh = SubResource("BoxMesh_flag")

@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[resource]
+resource_name = "knight_tabard"
+albedo_color = Color(0.1843, 0.4353, 0.6588, 1)
+metallic = 0.0
+roughness = 0.65
+rim_enabled = true
+rim = 0.3
+rim_tint = 0.4

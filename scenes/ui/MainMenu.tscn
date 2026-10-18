@@ -1,0 +1,218 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/UI/MainMenu.cs" id="1_script"]
+[ext_resource type="Theme" path="res://art/ui/theme.tres" id="2_theme"]
+[ext_resource type="Texture2D" path="res://art/ui/icons/bridge.svg" id="3_icon"]
+[ext_resource type="Texture2D" path="res://art/ui/icons/trampoline.svg" id="4_icon"]
+[ext_resource type="Texture2D" path="res://art/ui/icons/grapple.svg" id="5_icon"]
+
+[sub_resource type="Gradient" id="Gradient_sky"]
+offsets = PackedFloat32Array(0, 0.55, 1)
+colors = PackedColorArray(0.239, 0.486, 0.859, 1, 0.55, 0.75, 0.94, 1, 0.729, 0.859, 0.961, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sky"]
+gradient = SubResource("Gradient_sky")
+width = 16
+height = 256
+fill_from = Vector2(0, 0)
+fill_to = Vector2(0, 1)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_theme")
+script = ExtResource("1_script")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_sky")
+expand_mode = 1
+stretch_mode = 0
+
+[node name="Deco" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BlockBlue" type="ColorRect" parent="Deco"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = -130.0
+offset_right = 300.0
+offset_bottom = -80.0
+grow_vertical = 0
+mouse_filter = 2
+color = Color(0.306, 0.659, 0.871, 1)
+
+[node name="BlockGreen" type="ColorRect" parent="Deco"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 360.0
+offset_top = -190.0
+offset_right = 520.0
+offset_bottom = -150.0
+grow_vertical = 0
+mouse_filter = 2
+color = Color(0.424, 0.761, 0.290, 1)
+
+[node name="BlockOrange" type="ColorRect" parent="Deco"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -250.0
+offset_right = -60.0
+offset_bottom = -200.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+color = Color(1, 0.478, 0.102, 1)
+
+[node name="BlockYellow" type="ColorRect" parent="Deco"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -520.0
+offset_top = -140.0
+offset_right = -400.0
+offset_bottom = -105.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+color = Color(1, 0.824, 0.247, 1)
+
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Center"]
+custom_minimum_size = Vector2(420, 0)
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Title" type="Label" parent="Center/VBox"]
+layout_mode = 2
+theme_type_variation = &"TitleLabel"
+text = "JUMP RUN"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="Center/VBox"]
+layout_mode = 2
+theme_type_variation = &"SubtitleLabel"
+text = "Endloser Parkour – wie weit kommst du?"
+horizontal_alignment = 1
+
+[node name="Items" type="HBoxContainer" parent="Center/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="Bridge" type="TextureRect" parent="Center/VBox/Items"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("3_icon")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Trampoline" type="TextureRect" parent="Center/VBox/Items"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("4_icon")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Grapple" type="TextureRect" parent="Center/VBox/Items"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("5_icon")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Panel" type="PanelContainer" parent="Center/VBox"]
+layout_mode = 2
+
+[node name="Inner" type="VBoxContainer" parent="Center/VBox/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="HighscoreLabel" type="Label" parent="Center/VBox/Panel/Inner"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HudLabel"
+text = "Rekord: 0"
+horizontal_alignment = 1
+
+[node name="SeedEdit" type="LineEdit" parent="Center/VBox/Panel/Inner"]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "Seed (optional)"
+alignment = 1
+max_length = 9
+
+[node name="StartButton" type="Button" parent="Center/VBox/Panel/Inner"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+text = "Start"
+
+[node name="CharacterButton" type="Button" parent="Center/VBox/Panel/Inner"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "Charakter wählen"
+
+[node name="QuitButton" type="Button" parent="Center/VBox/Panel/Inner"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "Beenden"
+
+[node name="Footer" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.9)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -400.0
+offset_top = -48.0
+offset_right = 400.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_type_variation = &"SlotKeyLabel"
+text = "Kisten zerschlagen (F) für Brücke, Trampolin, Enterhaken und Helikopter · Orange/rote Abschnitte brauchen ein Item"
+horizontal_alignment = 1

@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[resource]
+resource_name = "trash_can"
+albedo_color = Color(0.2706, 0.6588, 0.4000, 1)
+metallic = 0.45
+roughness = 0.42
+metallic_specular = 0.6
+rim_enabled = true
+rim = 0.35
+rim_tint = 0.4

@@ -1,0 +1,24 @@
+# Godot
+.godot/
+*.translation
+export_presets.cfg
+export/
+
+# .NET
+bin/
+obj/
+*.user
+.vs/
+
+# Lokale Godot-Binaries (werden nicht versioniert)
+.tools/
+
+# VitePress
+website/node_modules/
+website/.vitepress/dist/
+website/.vitepress/cache/
+
+# Sonstiges
+*.log
+*.tmp
+.DS_Store

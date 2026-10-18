@@ -1,0 +1,368 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/UI/HUD.cs" id="1_script"]
+[ext_resource type="Theme" path="res://art/ui/theme.tres" id="2_theme"]
+[ext_resource type="Texture2D" path="res://art/ui/icons/bridge.svg" id="3_icon"]
+[ext_resource type="Texture2D" path="res://art/ui/icons/trampoline.svg" id="4_icon"]
+[ext_resource type="Texture2D" path="res://art/ui/icons/grapple.svg" id="5_icon"]
+[ext_resource type="Texture2D" path="res://art/ui/icons/crosshair.svg" id="6_cross"]
+[ext_resource type="Texture2D" path="res://art/ui/icons/grapple_target.svg" id="7_target"]
+[ext_resource type="Texture2D" path="res://art/ui/icons/helicopter.svg" id="8_heli"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("2_theme")
+script = ExtResource("1_script")
+
+[node name="TopLeft" type="MarginContainer" parent="."]
+layout_mode = 1
+offset_right = 420.0
+offset_bottom = 160.0
+mouse_filter = 2
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 20
+
+[node name="Stats" type="VBoxContainer" parent="TopLeft"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="DistanceLabel" type="Label" parent="TopLeft/Stats"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HudBigLabel"
+text = "0 m"
+
+[node name="ScoreLabel" type="Label" parent="TopLeft/Stats"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HudLabel"
+text = "Punkte: 0"
+
+[node name="TopRight" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -360.0
+offset_bottom = 80.0
+grow_horizontal = 0
+mouse_filter = 2
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 20
+
+[node name="HighscoreLabel" type="Label" parent="TopRight"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HudLabel"
+text = "Rekord: 0"
+horizontal_alignment = 2
+
+[node name="Crosshair" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("6_cross")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="GrappleIndicator" type="TextureRect" parent="."]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 1, 0.9)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(36, 36)
+mouse_filter = 2
+texture = ExtResource("7_target")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HintLabel" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -230.0
+offset_right = 320.0
+offset_bottom = -186.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_type_variation = &"HintLabel"
+text = "Hinweis"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BottomBar" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -270.0
+offset_top = -150.0
+offset_right = 270.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_constants/margin_bottom = 24
+
+[node name="Slots" type="HBoxContainer" parent="BottomBar"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="ItemSlot1" type="PanelContainer" parent="BottomBar/Slots"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(104, 112)
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"ItemSlotSelected"
+
+[node name="VBox" type="VBoxContainer" parent="BottomBar/Slots/ItemSlot1"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Key" type="Label" parent="BottomBar/Slots/ItemSlot1/VBox"]
+layout_mode = 2
+theme_type_variation = &"SlotKeyLabel"
+text = "[1] Brücke"
+horizontal_alignment = 1
+
+[node name="ItemSlot1Icon" type="TextureRect" parent="BottomBar/Slots/ItemSlot1/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(52, 52)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+texture = ExtResource("3_icon")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ItemSlot1Count" type="Label" parent="BottomBar/Slots/ItemSlot1/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"SlotCountLabel"
+text = "x0"
+horizontal_alignment = 1
+
+[node name="ItemSlot2" type="PanelContainer" parent="BottomBar/Slots"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(104, 112)
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"ItemSlot"
+
+[node name="VBox" type="VBoxContainer" parent="BottomBar/Slots/ItemSlot2"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Key" type="Label" parent="BottomBar/Slots/ItemSlot2/VBox"]
+layout_mode = 2
+theme_type_variation = &"SlotKeyLabel"
+text = "[2] Trampolin"
+horizontal_alignment = 1
+
+[node name="ItemSlot2Icon" type="TextureRect" parent="BottomBar/Slots/ItemSlot2/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(52, 52)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+texture = ExtResource("4_icon")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ItemSlot2Count" type="Label" parent="BottomBar/Slots/ItemSlot2/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"SlotCountLabel"
+text = "x0"
+horizontal_alignment = 1
+
+[node name="ItemSlot3" type="PanelContainer" parent="BottomBar/Slots"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(104, 112)
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"ItemSlot"
+
+[node name="VBox" type="VBoxContainer" parent="BottomBar/Slots/ItemSlot3"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Key" type="Label" parent="BottomBar/Slots/ItemSlot3/VBox"]
+layout_mode = 2
+theme_type_variation = &"SlotKeyLabel"
+text = "[3] Enterhaken"
+horizontal_alignment = 1
+
+[node name="ItemSlot3Icon" type="TextureRect" parent="BottomBar/Slots/ItemSlot3/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(52, 52)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+texture = ExtResource("5_icon")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ItemSlot3Count" type="Label" parent="BottomBar/Slots/ItemSlot3/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"SlotCountLabel"
+text = "x0"
+horizontal_alignment = 1
+
+[node name="ItemSlot4" type="PanelContainer" parent="BottomBar/Slots"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(104, 112)
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"ItemSlot"
+
+[node name="VBox" type="VBoxContainer" parent="BottomBar/Slots/ItemSlot4"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Key" type="Label" parent="BottomBar/Slots/ItemSlot4/VBox"]
+layout_mode = 2
+theme_type_variation = &"SlotKeyLabel"
+text = "[4] Helikopter"
+horizontal_alignment = 1
+
+[node name="ItemSlot4Icon" type="TextureRect" parent="BottomBar/Slots/ItemSlot4/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(52, 52)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+texture = ExtResource("8_heli")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ItemSlot4Count" type="Label" parent="BottomBar/Slots/ItemSlot4/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"SlotCountLabel"
+text = "x0"
+horizontal_alignment = 1
+
+[node name="FuelPanel" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -130.0
+offset_top = 64.0
+offset_right = 130.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_type_variation = &"ItemSlot"
+
+[node name="VBox" type="VBoxContainer" parent="FuelPanel"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 2
+
+[node name="FuelLabel" type="Label" parent="FuelPanel/VBox"]
+layout_mode = 2
+theme_type_variation = &"SlotKeyLabel"
+text = "Helikopter – Leertaste halten = steigen"
+horizontal_alignment = 1
+
+[node name="FuelBar" type="ProgressBar" parent="FuelPanel/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 2
+mouse_filter = 2
+max_value = 1.0
+step = 0.0
+value = 1.0
+show_percentage = false
+
+[node name="ControlsHint" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.6)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -420.0
+offset_top = -130.0
+offset_right = -24.0
+offset_bottom = -20.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_type_variation = &"SlotKeyLabel"
+text = "WASD Laufen · Shift Sprinten · Leertaste Springen
+F / LMB Kiste schlagen · E / RMB Item einsetzen
+1-4 / Mausrad Item wählen · Esc Pause
+Helikopter: Leertaste halten = steigen"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="RespawnFlash" type="ColorRect" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 1)

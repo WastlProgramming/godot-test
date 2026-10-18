@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3]
+
+[ext_resource type="Shader" path="res://art/shaders/backdrop.gdshader" id="1_shader"]
+
+[resource]
+resource_name = "backdrop_islands"
+shader = ExtResource("1_shader")
+shader_parameter/haze_begin = 150.0
+shader_parameter/haze_end = 820.0
+shader_parameter/haze_max = 1.0
+shader_parameter/haze_curve = 1.8
+shader_parameter/sun_strength = 0.75
+shader_parameter/wrap_period = Vector2(0, 1600)

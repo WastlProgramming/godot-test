@@ -1,0 +1,75 @@
+[gd_scene load_steps=11 format=3]
+
+[ext_resource type="Script" path="res://scripts/World/Backdrop.cs" id="1_backdrop"]
+[ext_resource type="Material" path="res://art/materials/backdrop_mountains_far.tres" id="2_far"]
+[ext_resource type="Material" path="res://art/materials/backdrop_mountains_mid.tres" id="3_mid"]
+[ext_resource type="Material" path="res://art/materials/backdrop_mountains_near.tres" id="4_near"]
+[ext_resource type="Material" path="res://art/materials/backdrop_islands.tres" id="5_islands"]
+[ext_resource type="Material" path="res://art/materials/backdrop_clouds.tres" id="6_clouds"]
+[ext_resource type="Material" path="res://art/materials/backdrop_motes.tres" id="7_motes"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_mote"]
+material = ExtResource("7_motes")
+size = Vector2(0.08, 0.08)
+
+[sub_resource type="Gradient" id="Gradient_mote"]
+offsets = PackedFloat32Array(0, 0.2, 0.75, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 0.95, 0.85, 0.8, 1, 0.95, 0.85, 0)
+
+[sub_resource type="Curve" id="Curve_mote"]
+_data = [Vector2(0, 0.6), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Backdrop" type="Node3D"]
+script = ExtResource("1_backdrop")
+
+[node name="MountainsFar" type="MeshInstance3D" parent="."]
+material_override = ExtResource("2_far")
+cast_shadow = 0
+gi_mode = 0
+
+[node name="MountainsMid" type="MeshInstance3D" parent="."]
+material_override = ExtResource("3_mid")
+cast_shadow = 0
+gi_mode = 0
+
+[node name="MountainsNear" type="MeshInstance3D" parent="."]
+material_override = ExtResource("4_near")
+cast_shadow = 0
+gi_mode = 0
+
+[node name="IslandsA" type="MultiMeshInstance3D" parent="."]
+material_override = ExtResource("5_islands")
+cast_shadow = 0
+gi_mode = 0
+
+[node name="IslandsB" type="MultiMeshInstance3D" parent="."]
+material_override = ExtResource("5_islands")
+cast_shadow = 0
+gi_mode = 0
+
+[node name="CloudSea" type="MultiMeshInstance3D" parent="."]
+material_override = ExtResource("6_clouds")
+cast_shadow = 0
+gi_mode = 0
+
+[node name="Motes" type="CPUParticles3D" parent="."]
+cast_shadow = 0
+gi_mode = 0
+amount = 48
+lifetime = 7.0
+preprocess = 7.0
+randomness = 0.5
+local_coords = false
+mesh = SubResource("QuadMesh_mote")
+emission_shape = 3
+emission_box_extents = Vector3(26, 9, 26)
+direction = Vector3(0.3, 0.4, 0.1)
+spread = 180.0
+gravity = Vector3(0, 0.04, 0)
+initial_velocity_min = 0.15
+initial_velocity_max = 0.55
+scale_amount_min = 0.6
+scale_amount_max = 1.5
+scale_amount_curve = SubResource("Curve_mote")
+color_ramp = SubResource("Gradient_mote")

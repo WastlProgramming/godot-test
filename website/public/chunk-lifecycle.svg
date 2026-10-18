@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" font-family="system-ui, sans-serif" font-size="13">
+  <rect width="760" height="300" rx="12" fill="#F6F8FC"/>
+  <text x="380" y="28" text-anchor="middle" font-size="16" font-weight="600" fill="#1B2440">Lebenszyklus eines Chunks (Laufrichtung → −Z)</text>
+  <!-- Achse -->
+  <line x1="30" y1="150" x2="735" y2="150" stroke="#9AA3B5" stroke-width="2"/>
+  <polygon points="735,145 748,150 735,155" fill="#9AA3B5"/>
+  <!-- Despawnt -->
+  <rect x="40" y="120" width="80" height="60" rx="6" fill="#E3E7EF" stroke="#9AA3B5" stroke-dasharray="5 4"/>
+  <text x="80" y="146" text-anchor="middle" fill="#5B6478">Chunk n−3</text>
+  <text x="80" y="164" text-anchor="middle" fill="#5B6478">entfernt</text>
+  <!-- Hinter Spieler -->
+  <rect x="130" y="120" width="80" height="60" rx="6" fill="#FFF1D6" stroke="#E8A317"/>
+  <text x="170" y="146" text-anchor="middle" fill="#7A5300">n−2</text>
+  <text x="170" y="164" text-anchor="middle" fill="#7A5300">Kandidat</text>
+  <!-- Checkpoint -->
+  <rect x="220" y="120" width="80" height="60" rx="6" fill="#D7F7E2" stroke="#2EB866"/>
+  <text x="260" y="146" text-anchor="middle" fill="#145C33">n−1</text>
+  <text x="260" y="164" text-anchor="middle" fill="#145C33">Checkpoint</text>
+  <!-- Spieler -->
+  <rect x="310" y="120" width="80" height="60" rx="6" fill="#DCE3FF" stroke="#3D5AFE" stroke-width="2"/>
+  <text x="350" y="146" text-anchor="middle" fill="#1B2A8C">n</text>
+  <text x="350" y="164" text-anchor="middle" fill="#1B2A8C">Spieler</text>
+  <circle cx="350" cy="108" r="7" fill="#3D5AFE"/>
+  <!-- Voraus -->
+  <rect x="400" y="120" width="320" height="60" rx="6" fill="#EEF3FB" stroke="#6FA6E8"/>
+  <text x="560" y="146" text-anchor="middle" fill="#1F4D8F">n+1 … n+6 (ChunksAhead = 6)</text>
+  <text x="560" y="164" text-anchor="middle" fill="#1F4D8F">≈ 240 m voraus, im Nebel</text>
+  <!-- Klammern -->
+  <path d="M220 196 v8 h170 v-8" fill="none" stroke="#2EB866" stroke-width="2"/>
+  <text x="305" y="222" text-anchor="middle" fill="#145C33">geschützt: ab min(Checkpoint, Spieler)</text>
+  <path d="M400 196 v8 h320 v-8" fill="none" stroke="#6FA6E8" stroke-width="2"/>
+  <text x="560" y="222" text-anchor="middle" fill="#1F4D8F">Spawn: max. 1 Chunk pro Physik-Frame</text>
+  <path d="M40 196 v8 h170 v-8" fill="none" stroke="#E8A317" stroke-width="2"/>
+  <text x="125" y="222" text-anchor="middle" fill="#7A5300">Despawn, wenn &gt; 30 m dahinter</text>
+  <text x="125" y="238" text-anchor="middle" fill="#7A5300">UND außerhalb des Kamera-Frustums</text>
+  <text x="380" y="276" text-anchor="middle" fill="#3A4258">Hartes Limit: MaxAliveChunks = 12 · Floating Origin ab |z| &gt; 1000 m</text>
+  <text x="80" y="80" text-anchor="middle" fill="#5B6478">hinten</text>
+  <text x="700" y="80" text-anchor="middle" fill="#5B6478">vorne</text>
+</svg>

@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[resource]
+resource_name = "bridge"
+transparency = 1
+cull_mode = 2
+shading_mode = 1
+albedo_color = Color(0.2471, 0.8784, 1, 0.55)
+emission_enabled = true
+emission = Color(0.2471, 0.8784, 1, 1)
+emission_energy_multiplier = 1.6
+rim_enabled = true
+rim = 0.8
+rim_tint = 0.2
+roughness = 0.3

@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[resource]
+resource_name = "char_limb"
+albedo_color = Color(0.1686, 0.2000, 0.3137, 1)
+metallic = 0.0
+roughness = 0.55
+rim_enabled = true
+rim = 0.25
+rim_tint = 0.4
