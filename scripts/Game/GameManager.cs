@@ -320,6 +320,10 @@ public partial class GameManager : Node
         AddKey("item_prev", Key.None, MouseButton.WheelUp);
         AddKey("use_item", Key.E, MouseButton.Right);
         AddKey("pause", Key.Escape);
+        AddKey("cam_left", Key.Left);
+        AddKey("cam_right", Key.Right);
+        AddKey("cam_up", Key.Up);
+        AddKey("cam_down", Key.Down);
     }
 
     private static void AddKey(string action, Key key, MouseButton mouse = MouseButton.None)

@@ -42,7 +42,7 @@ public partial class Main : Node3D
             GD.Print($"[Main] Charakter: {rig.CharacterId}");
 
         GetTree().Paused = false;
-        Input.MouseMode = Input.MouseModeEnum.Captured;
+        MouseCapture.Capture();
     }
 
     public override void _ExitTree()
@@ -86,18 +86,18 @@ public partial class Main : Node3D
     {
         // Nach Fokuswechsel (Alt-Tab, Klick in anderes Fenster) die Maus wieder einfangen.
         if (what == NotificationApplicationFocusIn && !GetTree().Paused)
-            Input.MouseMode = Input.MouseModeEnum.Captured;
+            MouseCapture.Capture();
     }
 
     public override void _UnhandledInput(InputEvent @event)
     {
         // Fallback ohne Pause-Menü: Esc gibt die Maus frei.
         if (Pause == null && @event.IsActionPressed("pause"))
-            Input.MouseMode = Input.MouseModeEnum.Visible;
+            MouseCapture.Release();
         // Klick ins Fenster fängt die Maus wieder ein (nur im laufenden Spiel).
         if (@event is InputEventMouseButton { Pressed: true } && !GetTree().Paused
-            && Input.MouseMode != Input.MouseModeEnum.Captured)
-            Input.MouseMode = Input.MouseModeEnum.Captured;
+            && !MouseCapture.IsCaptured)
+            MouseCapture.Capture();
     }
 
     private void SetupEnvironment()

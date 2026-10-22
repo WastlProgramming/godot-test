@@ -40,7 +40,7 @@ Im Hauptmenü kannst du optional einen **Seed** eingeben (nur Ziffern, max. 9 St
 | Laufen | W / A / S / D |
 | Sprinten | Shift (halten) |
 | Springen | Leertaste (länger halten = höher; löst auch den Enterhaken; im Helikopter: steigen) |
-| Kamera | Maus |
+| Kamera | Maus oder Pfeiltasten; ohne Eingabe dreht sie sich nach ca. 1 s hinter die Laufrichtung. Unter WSL: Maus an den Fensterrand halten dreht weiter (absoluter Mausmodus, erzwingen mit `-- --mouse=captured` oder `-- --mouse=absolute`) |
 | Kiste zerschlagen | linke Maustaste oder F |
 | Gadget einsetzen | 1 = Brücke, 2 = Trampolin, 3 = Enterhaken, 4 = Helikopter (sofort; beim aktiven Haken bzw. im Flug: beenden) |
 | Item wählen | Mausrad |

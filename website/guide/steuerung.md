@@ -7,7 +7,7 @@
 | Laufen | <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> |
 | Sprinten | <kbd>Shift</kbd> halten |
 | Springen | <kbd>Leertaste</kbd> – länger halten = höher |
-| Kamera drehen | Maus |
+| Kamera drehen | Maus oder Pfeiltasten (nach ca. 1 s ohne Eingabe folgt die Kamera der Laufrichtung) |
 | Kiste zerschlagen | linke Maustaste oder <kbd>F</kbd> |
 | Brücke einsetzen | <kbd>1</kbd> |
 | Trampolin einsetzen | <kbd>2</kbd> |
@@ -48,3 +48,13 @@ Die Musik läuft im Pause-Menü weiter, das Rotorgeräusch des Helikopters pausi
 Oben siehst du Strecke und Punkte. Unten liegen vier Item-Slots (`[1] Brücke`, `[2] Trampolin`, `[3] Enterhaken`,
 `[4] Helikopter`) mit Zählern im Format `x12` – ohne Obergrenze. Während eines Helikopterflugs erscheint eine
 **Tankanzeige**.
+
+## Kamera unter Linux/WSL
+
+WSLg überträgt die Maus wie eine Remote-Desktop-Sitzung mit **absoluten** Positionen, deshalb kann Godot den Zeiger dort nicht in der Fenstermitte festhalten. Das Spiel erkennt WSL automatisch und nutzt einen eigenen Mausmodus:
+
+- Der Zeiger ist versteckt; die Kamera rechnet die Bewegung aus der Zeigerposition.
+- Hält man die Maus am linken oder rechten Fensterrand, dreht die Kamera weiter.
+- Pfeiltasten drehen die Kamera ebenfalls.
+
+Den Modus kann man erzwingen: `./run-linux.sh -- --mouse=captured` (normaler Modus) oder `-- --mouse=absolute`.

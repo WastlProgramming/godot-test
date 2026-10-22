@@ -82,7 +82,7 @@ public partial class PauseMenu : Control
         bool open = !IsOpen;
         Visible = open;
         GetTree().Paused = open;
-        Input.MouseMode = open ? Input.MouseModeEnum.Visible : Input.MouseModeEnum.Captured;
+        if (open) MouseCapture.Release(); else MouseCapture.Capture();
         if (open)
         {
             if (_sensitivity != null && GameManager.Instance != null)
