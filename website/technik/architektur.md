@@ -10,6 +10,7 @@ Ordnern (`JumpRun.World`, `JumpRun.Items`, `JumpRun.Characters`, `JumpRun.Audio`
 project.godot            Projekteinstellungen, InputMap, Autoloads, Physik-Layer
 default_bus_layout.tres  Audio-Busse Master / Music / SFX
 JumpRun.csproj / .sln    C#-Projekt (Godot.NET.Sdk 4.6.3, net8.0)
+run-windows.ps1 / .cmd   Start unter Windows (Forward+, baut vorher, lädt Godot bei Bedarf)
 run-linux.sh             Start unter Linux/WSL (OpenGL über Mesa-D3D12)
 scenes/
   Main.tscn              Spielszene

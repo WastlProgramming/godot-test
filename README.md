@@ -24,6 +24,18 @@ Die ausführliche Dokumentation liegt als VitePress-Website unter `website/` (si
 - **Godot 4.6.x, .NET-Version** (z. B. `Godot_v4.6.3-stable_mono`). Die Standard-Version ohne .NET kann keine C#-Projekte öffnen.
 - **.NET SDK 8 oder neuer** (das Projekt zielt auf `net8.0` und nutzt `RollForward=LatestMajor`, läuft also auch mit .NET 9/10).
 
+## Unter Windows starten
+
+```powershell
+.\run-windows.ps1                       # Hauptmenü (oder run-windows.cmd doppelklicken)
+.\run-windows.ps1 res://scenes/Main.tscn  # direkt ins Spiel
+.\run-windows.ps1 -GameArgs --character=knight,--quality=low
+.\run-windows.ps1 -Editor               # Godot-Editor öffnen
+.\run-windows.ps1 -Console              # Log-Ausgabe im Terminal
+```
+
+Das Skript baut das C#-Projekt (`dotnet build`), lädt Godot 4.6.3 .NET bei Bedarf nach `%LOCALAPPDATA%\Programs\Godot` herunter (oder nimmt `$env:GODOT` bzw. `.tools\godot\`) und startet maximiert in Forward+. Liegt das Projekt in WSL (`\\wsl.localhost\...`), bindet es die Distribution als Laufwerk ein, weil Godot die Projekt-Assembly nicht von einem UNC-Pfad lädt. Spiel-Schalter gehen über `-GameArgs`, da PowerShell ein unquotiertes `--` verschluckt.
+
 ## Im Editor öffnen
 
 1. Godot 4.6 .NET starten.
@@ -147,9 +159,4 @@ npm run docs:build    # statische Seite nach website/.vitepress/dist
 
 ## Git
 
-Das Projekt ist ein Git-Repository (Branch `main`). `.godot/`, `.tools/`, `bin/`, `obj/` und die VitePress-Build-Ordner sind ausgeschlossen; `*.uid`- und `*.import`-Dateien werden eingecheckt. Ein Remote ist nicht eingerichtet:
-
-```bash
-git remote add origin <url>
-git push -u origin main
-```
+Das Projekt ist ein Git-Repository (Branch `main`). `.godot/`, `.tools/`, `bin/`, `obj/` und die VitePress-Build-Ordner sind ausgeschlossen; `*.uid`- und `*.import`-Dateien werden eingecheckt. Remote: https://github.com/WastlProgramming/godot-test

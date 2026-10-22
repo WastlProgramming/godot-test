@@ -11,6 +11,32 @@
 Externe Assets brauchst du nicht: Meshes entstehen im Code, Materialien und Shader liegen als Text-Ressourcen im
 Projekt, die Audiodateien erzeugt ein Python-Skript und sind bereits eingecheckt.
 
+## Windows: `run-windows.ps1`
+
+Der schnellste Weg unter Windows: `run-windows.cmd` doppelklicken oder in PowerShell
+
+```powershell
+.\run-windows.ps1                         # Hauptmenü
+.\run-windows.ps1 res://scenes/Main.tscn    # direkt ins Spiel
+.\run-windows.ps1 -GameArgs --character=knight,--quality=low
+.\run-windows.ps1 -Editor                 # Godot-Editor öffnen
+.\run-windows.ps1 -Console                # Log-Ausgabe im Terminal
+.\run-windows.ps1 -NoBuild                # ohne vorheriges dotnet build
+```
+
+Das Skript
+
+1. sucht Godot 4.6.3 .NET in `$env:GODOT`, `.tools\godot\` und `%LOCALAPPDATA%\Programs\Godot\` und lädt es sonst dorthin herunter,
+2. baut das C#-Projekt mit `dotnet build`,
+3. startet das Spiel maximiert im Renderer **Forward+** (Vulkan).
+
+::: tip Projekt liegt in WSL
+Godot lädt die Projekt-Assembly nicht von einem UNC-Pfad wie `\\wsl.localhost\Ubuntu\...`. Das Skript bindet die
+Distribution deshalb als Laufwerk ein (z. B. `W:`, nur bis zum Abmelden) und startet von dort.
+:::
+
+Spiel-Schalter wie `--character=…` übergibst du mit `-GameArgs`: PowerShell verschluckt ein unquotiertes `--`.
+
 ## Windows: im Godot-Editor
 
 1. Godot 4.6 .NET herunterladen und starten.
